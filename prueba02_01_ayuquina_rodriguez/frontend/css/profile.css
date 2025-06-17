@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Outfit', sans-serif;
+    background: #000;
+    overflow: hidden;
+}
+
+.profile-container {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    overflow: hidden;
+}
+
+.profile-container::before,
+.profile-container::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.profile-container::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232d364d' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    animation: move-background 80s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes move-background {
+    from {
+        transform: translateX(0) translateY(0);
+    }
+    to {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+.profile-card {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    animation: card-appear 1s ease-out;
+    z-index: 1;
+}
+
+@keyframes card-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) rotateX(-10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+.profile-card h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.profile-card h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #00f7ff, #00ff95);
+    transform: translateX(-50%);
+}
+
+.profile-info {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-info p {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-info strong {
+    color: #00f7ff;
+    font-weight: 600;
+    min-width: 80px;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(90deg, #00f7ff, #00ff95);
+    border: none;
+    border-radius: 16px;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    margin-top: 1.5rem;
+}
+
+.logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.logout-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0, 247, 255, 0.5);
+}
+
+.logout-btn:hover::before {
+    left: 100%;
+}
+
+/* Efecto de partículas flotantes */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+.profile-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 15s infinite;
+    opacity: 0.1;
+}
+
+/* Efecto de hover 3D en la tarjeta */
+.profile-card:hover {
+    transform: rotateX(5deg) rotateY(5deg);
+    box-shadow: 
+        -20px -20px 30px rgba(0, 247, 255, 0.1),
+        20px 20px 30px rgba(0, 255, 149, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Asegurarse de que los elementos decorativos no interfieran */
+.profile-container::before,
+.profile-container::after {
+    pointer-events: none;
+}
+
+.profile-card::before,
+.profile-card::after {
+    pointer-events: none;
+}
