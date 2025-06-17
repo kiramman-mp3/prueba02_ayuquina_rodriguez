@@ -8,9 +8,22 @@ class DatabaseConnection {
 
     public static function getInstance(): PDO {
         if (self::$instance === null) {
-            self::$instance = new PDO("mysql:host=localhost;dbname=auth;charset=utf8", "root", "");
+            $driver = require __DIR__ . '/driver.php';
+
+            $envs = match ($driver) {
+                'mysql'    => Envs::mysql(),
+                'postgres' => Envs::postgres(),
+            };
+
+            $dsn = match ($driver) {
+                'mysql'    => "mysql:host={$envs['host']};dbname={$envs['dbname']};charset=utf8",
+                'postgres' => "pgsql:host={$envs['host']};port={$envs['port']};dbname={$envs['dbname']}",
+            };
+
+            self::$instance = new PDO($dsn, $envs['username'], $envs['password']);
             self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
+
         return self::$instance;
     }
 }
