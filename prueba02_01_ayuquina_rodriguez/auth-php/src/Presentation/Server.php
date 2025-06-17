@@ -8,4 +8,5 @@ require_once __DIR__ . '/../src/data/postgres/DataSource.php';
 
 use Config\DatabaseFactory;
 
+// Conexión desacoplada (según driver.php)
 $pdo = DatabaseFactory::create();

@@ -11,8 +11,8 @@ class DatabaseFactory {
         $driver = $settings['driver'] ?? 'mysql';
 
         return match ($driver) {
-            'mysql' => MySQLDataSource::getInstance(Envs::mysql())->getConnection(),
-            'pgsql' => PostgresDataSource::getInstance(Envs::postgres())->getConnection(),
+            'mysql' => (new MySQLDataSource(Envs::mysql()))->getConnection(),
+            'pgsql' => (new PostgresDataSource(Envs::postgres()))->getConnection(),
             default => throw new \InvalidArgumentException("Unsupported driver '$driver'")
         };
     }

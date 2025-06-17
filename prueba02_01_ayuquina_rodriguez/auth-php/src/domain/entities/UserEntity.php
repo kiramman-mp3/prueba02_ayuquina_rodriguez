@@ -47,4 +47,28 @@ class UserEntity {
             'img'      => $this->img,
         ];
     }
+    public function getId(): string {
+    return $this->id;
+}
+
+public function getName(): string {
+    return $this->name;
+}
+
+public function getEmail(): string {
+    return $this->email;
+}
+
+public function getPassword(): string {
+    return $this->password;
+}
+
+public function getRoles(): array {
+    return $this->role;
+}
+
+public function getImg(): ?string {
+    return $this->img;
+}
+
 }

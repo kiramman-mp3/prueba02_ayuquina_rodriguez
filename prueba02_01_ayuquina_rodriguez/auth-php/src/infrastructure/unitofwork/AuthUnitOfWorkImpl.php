@@ -1,10 +1,10 @@
 <?php
 namespace Infrastructure\UnitOfWork;
 
-use Domain\UnitOfWork\UnitOfWorkInterface;
+use Domain\UnitOfWork\UnitOfWork;
 use PDO;
 
-class MySQLUnitOfWork implements UnitOfWorkInterface {
+class AuthUnitOfWorkImpl implements UnitOfWork {
     private PDO $conn;
 
     public function __construct(PDO $conn) {
@@ -21,9 +21,5 @@ class MySQLUnitOfWork implements UnitOfWorkInterface {
 
     public function rollback(): void {
         $this->conn->rollBack();
-    }
-
-    public function getConnection(): PDO {
-        return $this->conn;
     }
 }

@@ -27,6 +27,6 @@ class JwtAdapter {
         if (str_ends_with($duration, 'm')) {
             return (int)$duration * 60;
         }
-        return 7200; 
+        return 7200; // default 2h
     }
 }

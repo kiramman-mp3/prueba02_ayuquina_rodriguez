@@ -1,13 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../frontend/css/login.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     
@@ -65,5 +63,34 @@
             </div>
         </form>
     </div>
+
+    <script>
+    // Add focus effects to inputs
+    document.querySelectorAll('.login-input').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.style.borderColor = '#7f53ac';
+            this.style.boxShadow = '0 0 0 3px rgba(127, 83, 172, 0.12)';
+        });
+
+        input.addEventListener('blur', function() {
+            this.style.borderColor = '#e2e8f0';
+            this.style.boxShadow = 'none';
+        });
+    });
+
+    // Add hover effect to button
+    const loginBtn = document.querySelector('.login-btn');
+    loginBtn.addEventListener('mouseenter', function() {
+        this.style.background = 'linear-gradient(90deg, #7f53ac 0%, #657ced 100%)';
+        this.style.boxShadow = '0 8px 24px 0 rgba(127, 83, 172, 0.18)';
+        this.style.transform = 'translateY(-2px) scale(1.03)';
+    });
+
+    loginBtn.addEventListener('mouseleave', function() {
+        this.style.background = 'linear-gradient(90deg, #657ced 0%, #7f53ac 100%)';
+        this.style.boxShadow = '0 4px 12px 0 rgba(127, 83, 172, 0.10)';
+        this.style.transform = 'none';
+    });
+    </script>
 </body>
 </html>

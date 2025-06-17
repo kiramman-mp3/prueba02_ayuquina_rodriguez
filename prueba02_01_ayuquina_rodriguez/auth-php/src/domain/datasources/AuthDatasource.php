@@ -8,4 +8,7 @@ use Domain\Entities\UserEntity;
 interface AuthDatasource {
     public function login(LoginUserDTO $dto): UserEntity;
     public function register(RegisterUserDTO $dto): UserEntity;
+    public function getConnection(): \PDO;
+
+
 }

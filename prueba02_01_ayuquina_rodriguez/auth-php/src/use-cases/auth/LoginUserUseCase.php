@@ -10,7 +10,7 @@ class LoginUserUseCase {
 
     public function __construct(
         private AuthRepository $authRepository,
-        private $signToken = [JwtAdapter::class, 'generateToken'] 
+        private $signToken = [JwtAdapter::class, 'generateToken'] // callable
     ) {}
 
     public function execute(LoginUserDTO $dto): array {

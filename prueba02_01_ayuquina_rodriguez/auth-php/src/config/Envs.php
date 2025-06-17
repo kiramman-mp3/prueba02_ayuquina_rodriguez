@@ -7,8 +7,8 @@ class Envs {
             'host' => 'localhost',
             'port' => 3306,
             'username' => 'root',
-            'password' => '',
-            'dbname' => 'node_auth'
+            'password' => 'Angel_4220',
+            'dbname' => 'auth_db'
         ];
     }
 
@@ -17,12 +17,12 @@ class Envs {
             'host' => 'localhost',
             'port' => 5432,
             'username' => 'postgres',
-            'password' => 'S1805787841',
-            'dbname' => 'node_auth'
+            'password' => 'Angel_4220',
+            'dbname' => 'auth_db'
         ];
     }
 
     public static function jwt(): string {
-        return '95a2a4ada62c2a93e5fafd7277bd1373ec96a5c4f6849ee7f1008502a14394bf';
+        return 'aqui_va_tu_clave_secreta_segura';
     }
 }

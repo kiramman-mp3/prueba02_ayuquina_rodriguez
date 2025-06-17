@@ -20,4 +20,21 @@ class AuthRepositoryImpl implements AuthRepository {
     public function register(RegisterUserDTO $dto): UserEntity {
         return $this->authDatasource->register($dto);
     }
+    public function add(UserEntity $user): void {
+    $stmt = $this->authDatasource->getConnection()->prepare(
+        "INSERT INTO users (id, name, email, password, role) VALUES (:id, :name, :email, :password, :role)"
+    );
+    $stmt->execute([
+        'id'       => $user->getId(),
+        'name'     => $user->getName(),
+        'email'    => $user->getEmail(),
+        'password' => $user->getPassword(),
+        'role'     => $user->getRoles()[0] ?? 'user'
+    ]);
+}
+
+    
+
+    
+    
 }

@@ -12,7 +12,7 @@ class AuthMiddleware {
 
         if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
             http_response_code(401);
-            echo json_encode(['error' => 'Token no válido o ausente']);
+            echo json_encode(['error' => 'Invalid or missing token']);
             exit;
         }
 
@@ -26,6 +26,7 @@ class AuthMiddleware {
                 echo json_encode(['error' => 'Invalid token structure']);
                 exit;
             }
+
 
             $pdo = DatabaseFactory::create();
 
