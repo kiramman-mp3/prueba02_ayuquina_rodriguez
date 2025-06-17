@@ -1,5 +1,5 @@
 <?php
-namespace Data\MySQL;
+namespace Data\Postgres;
 
 use PDO;
 use PDOException;
@@ -9,7 +9,7 @@ class DataSource {
     private PDO $conn;
 
     private function __construct(array $config) {
-        $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']}";
+        $dsn = "pgsql:host={$config['host']};port={$config['port']};dbname={$config['dbname']}";
         $this->conn = new PDO($dsn, $config['username'], $config['password']);
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }

@@ -1,8 +1,7 @@
 <?php
-namespace Domain\Entities;
+namespace Data\MySQL\Entities;
 
 class UserEntity {
-
     public string $id;
     public string $name;
     public string $email;
@@ -15,7 +14,7 @@ class UserEntity {
         string $name,
         string $email,
         string $password,
-        array $role,
+        array $role = ['user'],
         ?string $img = null
     ) {
         $this->id = $id;

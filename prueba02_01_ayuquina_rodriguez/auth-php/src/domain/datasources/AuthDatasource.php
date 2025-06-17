@@ -1,11 +1,11 @@
 <?php
-namespace Domain\Repositories;
+namespace Domain\Datasources;
 
 use Domain\DTOs\LoginUserDTO;
 use Domain\DTOs\RegisterUserDTO;
 use Domain\Entities\UserEntity;
 
-interface AuthRepository {
+interface AuthDatasource {
     public function login(LoginUserDTO $dto): UserEntity;
     public function register(RegisterUserDTO $dto): UserEntity;
 }
