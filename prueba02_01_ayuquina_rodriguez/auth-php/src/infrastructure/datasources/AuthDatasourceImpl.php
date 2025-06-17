@@ -14,7 +14,11 @@ class AuthDatasourceImpl implements AuthDatasource {
     private \PDO $conn;
 
     public function __construct() {
-        $this->conn = DatabaseFactory::create(); // ✔ Se usa el factory desacoplado
+        $this->conn = DatabaseFactory::create(); 
+    }
+
+    public function getConnection(): \PDO {
+        return $this->conn;
     }
 
     public function login(LoginUserDTO $dto): UserEntity {

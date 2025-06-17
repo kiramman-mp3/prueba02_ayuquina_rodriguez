@@ -7,8 +7,8 @@ class Envs {
             'host' => 'localhost',
             'port' => 3306,
             'username' => 'root',
-            'password' => 'Angel_4220',
-            'dbname' => 'auth_db'
+            'password' => '',
+            'dbname' => 'node_auth'
         ];
     }
 
